@@ -11,7 +11,7 @@ def loginMail(username=None,password=None):
     m = IMAP4_SSL("imap.gmail.com")
     #Does not check for password
     if username == None:
-        m.login("vageli.printer@gmail.com","printer1")
+        m.login("USERNAME","PASSWORD")
     else:
         m.login(username,password)
 
