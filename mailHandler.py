@@ -11,16 +11,19 @@ def loginMail(username=None,password=None):
     m = IMAP4_SSL("imap.gmail.com")
     #Does not check for password
     if username == None:
+        #If username is not supplied, enter these default credentials
         m.login("USERNAME","PASSWORD")
     else:
         m.login(username,password)
-
+    #Return mail object
     return m
 
 def checkMsgNum(m):
+    """Takes a mail object and returns the number of messages"""
     #mboxes = m.list()[1] Show all boxes
     m.select("INBOX")#Select mailbox
-    #data = m.search(None, "(FROM \"vagelim@gmail.com\")") Search specific email addy
+    #data = m.search(None, "(FROM \"default@gmail.com\")") Search specific email addy
+    #Change "default@gmail.com" in above to a specific email address to enable search from particular user
     items = m.search(None, "(UNSEEN)")
     msgNum = str(items[1]).rsplit(None)[-1].strip('[\']')
 
