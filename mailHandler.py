@@ -30,7 +30,7 @@ def checkMsgNum(m):
     return msgNum
 
 def getAttachment(mail, directory=detach_dir):#Download attachment to directory & return filename
-
+    """Takes a mail object and optional path to save attachments"""
     for part in mail.walk():
         if part.get_content_maintype() == 'multipart':
             continue
@@ -48,6 +48,7 @@ def getAttachment(mail, directory=detach_dir):#Download attachment to directory 
     return filename
 
 def readMail(m, msgNum):#Read a particular email
+    """Takes a mail object and a specific email requested, returns email"""
     resp, data = m.fetch(msgNum, "(RFC822)")
     email_body = data[0][1]
     mail = email.message_from_string(email_body)
