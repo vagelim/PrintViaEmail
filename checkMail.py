@@ -10,8 +10,6 @@ import mailHandler as mH #mail processing functions
 
 path = os.path.dirname(os.path.abspath(__file__)) + '/'
 
-detach_dir = path + 'detach'
-
 
 def emailPrinter():
     #mailHander handles login, email processing and attachment downloading
